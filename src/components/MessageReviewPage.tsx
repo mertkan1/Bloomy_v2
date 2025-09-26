@@ -4,7 +4,7 @@ import { Button } from './ui/button';
 import { Card } from './ui/card';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
-import { Heart, ChevronLeft, ChevronRight, RefreshCw, SkipForward, Check, CheckCheck, Coins, Edit2, AlertTriangle } from 'lucide-react';
+import { Heart, ChevronLeft, ChevronRight, RefreshCw, SkipForward, Check, CheckCheck, Coins, CreditCard as Edit2, TriangleAlert as AlertTriangle } from 'lucide-react';
 import { toast } from 'sonner@2.0.3';
 
 interface MessageReviewPageProps {

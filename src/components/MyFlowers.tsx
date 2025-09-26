@@ -6,7 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { Badge } from './ui/badge';
 import { Avatar } from './ui/avatar';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { Heart, Eye, QrCode, Send, Settings, LogOut, Calendar, Gift, Loader2, User } from 'lucide-react';
+import { Heart, Eye, QrCode, Send, Settings, LogOut, Calendar, Gift, Loader as Loader2, User } from 'lucide-react';
 import { projectId, publicAnonKey } from '../utils/supabase/info';
 import { toast } from 'sonner@2.0.3';
 import exampleImage from 'figma:asset/969996e8b243f236bb6f845a9c42171cf3e03bb0.png';
