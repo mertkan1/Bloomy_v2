@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import exampleImage from 'figma:asset/3b9a464b502f633d9892beda9bae7d77744045aa.png';
 
 interface GiftGrowingProps {
