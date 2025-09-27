@@ -1,11 +1,13 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback'
+import { useGiftStore } from '@/lib/store/gift-store'
 import { Heart, ArrowLeft, Sparkles } from 'lucide-react'
 
 interface Flower {
@@ -52,6 +54,9 @@ export function CraftGiftContent({
   onBack = () => {},
   onSendGift = () => {}
 }: CraftGiftProps) {
+  const router = useRouter()
+  const { setGiftData, setCurrentStep } = useGiftStore()
+  
   const [formData, setFormData] = useState({
     recipientName: '',
     senderName: '',
@@ -89,14 +94,30 @@ export function CraftGiftContent({
     })
   }
 
-  const handleSendGift = () => {
-    const giftData = {
-      ...formData,
-      selectedThemes,
-      flower,
-      timestamp: new Date().toISOString()
+  const handleSendGift = async () => {
+    try {
+      const giftData = {
+        recipientName: formData.recipientName,
+        senderName: formData.senderName,
+        message: formData.message,
+        selectedThemes,
+        flower,
+      }
+      
+      // Save to store
+      setGiftData(giftData)
+      setCurrentStep(1)
+      
+      // Navigate to music selection page
+      router.push('/music-selection')
+      
+      // Call the prop function if provided
+      if (onSendGift) {
+        onSendGift(giftData)
+      }
+    } catch (error) {
+      console.error('Error preparing gift:', error)
     }
-    onSendGift(giftData)
   }
 
   const isFormValid = formData.recipientName && formData.senderName && formData.message.trim().length > 'My message, '.length
