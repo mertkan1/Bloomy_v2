@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Heart, Globe, LogIn, LogOut, Loader2 } from 'lucide-react'
+import { Heart, Globe, LogIn, LogOut, Loader as Loader2 } from 'lucide-react'
 import { toast } from 'sonner'
 
 export function Header() {
